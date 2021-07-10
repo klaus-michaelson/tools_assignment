@@ -47,7 +47,6 @@ class Tank {
         // to start water automatically
         this.status = "onwater";
         this.handleStatus();
-        // console.log(objects);
         this.canvElem.removeEventListener("click", this.handleClick);
     }
     update = function () {
@@ -97,12 +96,9 @@ class Tank {
     }
     calcPressure = function () {
         var w = this.h;
-        // if (this.pos.alignment == "v")
-        //     w = this.w;
         this.pressure = tankPressure.value;
         console.log(this.pressure)
         this.pressure -= this.pressure / (w - (w / 2));
-        // this.pressure = this.pressure - (w - (w / 3));
         this.pressure = parseInt(this.pressure.toString().split(".")[0])
         if (this.pressure < 0) this.pressure = 0;
         console.log(this.pressure);
@@ -113,10 +109,6 @@ class Tank {
             height = this.canvElem.height;
         var w = this.w;
         var h = this.h;
-        // if (this.pos.alignment == "h") {
-        //     w = this.h;
-        //     h = this.w;
-        // }
         context.clearRect(0, 0, width, height);
         context.save();
         context.fillStyle = this.color;
@@ -125,9 +117,6 @@ class Tank {
         this.drawBody(w, h);
         this.drawOutput(w, h)
         context.restore();
-        // context.clearRect(0, 0, width, height);
-        // context.beginPath();
-        // context.fillRect(this.pos.x, this.pos.y, w, h);
     }
     drawHead = function (w, h) {
         var context = this.canvElem.getContext("2d");
