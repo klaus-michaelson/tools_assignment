@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <title>Water Resrvoiur Simulation</title>
+    <style>
+        canvas {
+            position: absolute;
+            border: 1px solid red;
+        }
+
+        #canvasCont {
+            position: relative;
+            width: 100%;
+            height: 90%;
+        }
+
+        #objects {
+            position: relative;
+            z-index: 2;
+        }
+
+        .dsp-n {
+            display: none;
+        }
+
+        .box {
+            padding: 2px;
+            display: inline-block;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <canvas id="design"></canvas> -->
+    <div>
+        <div id="canvasCont">
+        </div>
+        <div>
+            Pressure: <input type="number" id="tankPressure" value="200">
+        </div>
+    </div>
+    <div>
+        <input type="hidden" value="Go back" onclick="goBack()">
+        <input type="hidden" value="Open Water" onclick="openWater()">
+    </div>
+    <div id="options" class='row'>
+        <span class='box'>
+            Width: <input type='range' min=5 max=100 value=40 id='objWidth'>
+        </span>
+        <span class='box'>
+            Height: <input type='range' min=5 max=500 value=20 id='objHeight'>
+        </span>
+        <span class='box'>
+            Alignment:
+            <select id='objAlignment'>
+                <option value='h' selected>Horizontal</option>
+                <option value='v'>Vertical</option>
+            </select>
+        </span>
+    </div>
+    <div id="objects">
+        <input type="button" value="Tank" onclick="createObj('Tank')">
+        <input type="button" value="Pipe" onclick="createObj('Pipe')">
+        <input type="hidden" value="Pump" onclick="createObj('Pump')">
+        <input type="hidden" value="House" onclick="createObj('House')">
+    </div>
+    <script src="js/objects.js"></script>
+    <script src="js/Tank.js"></script>
+    <script src="js/Pipe.js"></script>
+    <script src="js/js.js"></script>
+    <!-- <script>
+        var canvas = document.getElementById("design"),
+            width = canvas.width = 400,
+            height = canvas.height = 200,
+            context = canvas.getContext("2d");
+
+
+        pos = {
+            x: width / 2,
+            y: height / 3,
+            alignment: 'v'
+        }
+        w = 60;
+        h = 20;
+
+
+    </script> -->
+</body>
+
+</html>
