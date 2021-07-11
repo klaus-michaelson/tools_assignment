@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <title>Water Resrvoiur Simulation</title>
+    <link rel="stylesheet" href="./css/css.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+
+<body>
+    <!-- <canvas id="design"></canvas> -->
+    <div class="m-0 p-0">
+        <div id="canvasCont" class="m-0 p-0">
+        </div>
+        <div>
+            Pressure: <input type="number" id="tankPressure" value="200">
+        </div>
+    </div>
+    <div>
+        <input type="hidden" value="Go back" onclick="goBack()">
+        <input type="hidden" value="Open Water" onclick="openWater()">
+    </div>
+    <div class='d-flex'>
+        <div id="options" >
+            <span class='box'>
+                Width: <input type='range' min=5 max=100 value=40 id='objWidth'>
+            </span>
+            <span class='box'>
+                Height: <input type='range' min=5 max=500 value=20 id='objHeight'>
+            </span>
+            <span class='box'>
+                Alignment:
+                <select id='objAlignment'>
+                    <option value='h' selected>Horizontal</option>
+                    <option value='v'>Vertical</option>
+                </select>
+            </span>
+        </div>
+        <div id="objects">
+            <input type="button" value="Tank" onclick="createObj('Tank')">
+            <input type="button" value="Pipe" onclick="createObj('Pipe')">
+            <input type="hidden" value="Pump" onclick="createObj('Pump')">
+            <input type="hidden" value="House" onclick="createObj('House')">
+        </div>
+    </div>
+    <script src="js/objects.js"></script>
+    <script src="js/Tank.js"></script>
+    <script src="js/Pipe.js"></script>
+    <script src="js/js.js"></script>
+</body>
+
+</html>
